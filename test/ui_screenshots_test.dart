@@ -7,7 +7,7 @@ import 'package:demo_calculator/screens/home_screen.dart';
 void main() {
   testWidgets('Golden screenshot: Login screen', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(home: LoginPage(), debugShowCheckedModeBanner: false),
+      MaterialApp(home: LoginPage(), debugShowCheckedModeBanner: false),
     );
 
     await expectLater(
@@ -18,7 +18,7 @@ void main() {
 
   testWidgets('Golden screenshot: Sign up screen', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(home: SignUpPage(), debugShowCheckedModeBanner: false),
+      MaterialApp(home: SignUpPage(), debugShowCheckedModeBanner: false),
     );
 
     await expectLater(
