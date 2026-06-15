@@ -2,47 +2,46 @@ import 'package:flutter/material.dart';
 
 // Home Page
 class HomePage extends StatefulWidget {
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   //Initial Value
-  double currentValue=0.0;
+  double currentValue = 0.0;
 
   //Increase Value
-  void increaseValue(){
+  void increaseValue() {
     setState(() {
       currentValue++;
     });
-
   }
+
   //Decrease Value
-  void decreaseValue(){
+  void decreaseValue() {
     setState(() {
       currentValue--;
     });
-
   }
+
   //Multiply Value by 2
-  void multiplyValue(){
+  void multiplyValue() {
     setState(() {
       currentValue = currentValue * 2;
     });
-
   }
+
   //Divide Value by 5
-  void divideValue(){
+  void divideValue() {
     setState(() {
-      currentValue = currentValue /5;
+      currentValue = currentValue / 5;
     });
-
   }
+
   //Reset
-  void resetValue(){
+  void resetValue() {
     setState(() {
-      currentValue=0.0;
+      currentValue = 0.0;
     });
   }
 
@@ -62,8 +61,7 @@ class _HomePageState extends State<HomePage> {
           color: color,
           boxShadow: [
             BoxShadow(
-              color:
-              Colors.black.withOpacity(0.2),
+              color: Colors.black.withOpacity(0.2),
               blurRadius: 10,
               offset: Offset(0, 5),
             ),
@@ -83,143 +81,118 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       backgroundColor: Colors.white,
 
       //App Bar
-      appBar:AppBar(
+      appBar: AppBar(
         title: Text(
           "Counter Calculator App",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-
+          style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors:[
-                Color(0xff11c7A5),
-                Color(0xff18A8E1),
-              ],
+              colors: [Color(0xff11c7A5), Color(0xff18A8E1)],
             ),
           ),
         ),
       ),
 
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
 
-
-      body: Column(
-        children: [
-          SizedBox(height: 30),
-
-          //Current Value
-          Text(
-            "Current Value",
-            style:TextStyle(
-              fontSize:24,
-              color:Colors.blueGrey,
+            //Current Value
+            const Text(
+              "Current Value",
+              style: TextStyle(fontSize: 24, color: Colors.blueGrey),
             ),
-          ),
-          SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-          //Value Showing
-          Container(
-            height: 170,
-            width: 320,
-            decoration: BoxDecoration(
-              color: Color(0xffE8F4F4),
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                color: Color(0xff78E7D6),
-                width:2,
+            //Value Showing
+            Container(
+              height: 170,
+              width: 320,
+              decoration: BoxDecoration(
+                color: const Color(0xffE8F4F4),
+                borderRadius: BorderRadius.circular(25),
+                border: Border.all(color: const Color(0xff78E7D6), width: 2),
               ),
-            ),
-            child: Center(
-              child: Text(
-                currentValue.toStringAsFixed(2),
-                style:TextStyle(
-                  fontSize: 65,
-                  fontWeight: FontWeight.bold,
-                  color:Color(0xff0097A7),
+              child: Center(
+                child: Text(
+                  currentValue.toStringAsFixed(2),
+                  style: const TextStyle(
+                    fontSize: 65,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff0097A7),
+                  ),
                 ),
               ),
             ),
-          ),
 
-          SizedBox(height: 45),
+            const SizedBox(height: 45),
 
-          //Arithematic Buttons
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              //+ button
-              customButton(text: "+",
-                color: Color(0xff12CFA7),
-                onPressed: increaseValue,
-              ),
-              //- button
-              customButton(text: "-",
-                color: Color(0xffF93E8B),
-                onPressed: decreaseValue,
-              ),
-            ],
-          ),
-          SizedBox(height:30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              //multiply * button
-              customButton(text: "x",
-                color: Color(0xff5A6CF3),
-                onPressed: multiplyValue,
-              ),
-              //divide / button
-              customButton(text: "+",
-                color: Color(0xffFF9800),
-                onPressed: divideValue,
-              ),
-            ],
-          ),
-          SizedBox(height:40),
-          //Reset Button
-          ElevatedButton.icon(onPressed: resetValue,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff7185A3),
-              padding:
-              EdgeInsets.symmetric(
-                horizontal: 50,
-                vertical: 18,
-              ),
-              shape:
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-
+            //Arithematic Buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                customButton(
+                  text: "+",
+                  color: const Color(0xff12CFA7),
+                  onPressed: increaseValue,
+                ),
+                customButton(
+                  text: "-",
+                  color: const Color(0xffF93E8B),
+                  onPressed: decreaseValue,
+                ),
+              ],
             ),
-            icon:Icon(
-              Icons.refresh,
-              color:Colors.white,
-              size:30,
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                customButton(
+                  text: "x",
+                  color: const Color(0xff5A6CF3),
+                  onPressed: multiplyValue,
+                ),
+                customButton(
+                  text: "/",
+                  color: const Color(0xffFF9800),
+                  onPressed: divideValue,
+                ),
+              ],
             ),
-            label:Text(
-              "Reset",
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-
+            const SizedBox(height: 40),
+            //Reset Button
+            ElevatedButton.icon(
+              onPressed: resetValue,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff7185A3),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 50,
+                  vertical: 18,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              icon: const Icon(Icons.refresh, color: Colors.white, size: 30),
+              label: const Text(
+                "Reset",
+                style: TextStyle(fontSize: 24, color: Colors.white),
               ),
             ),
-          ),
-        ],
-
-
+            const SizedBox(height: 24),
+          ],
+        ),
       ),
     );
   }

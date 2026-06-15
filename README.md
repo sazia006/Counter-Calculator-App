@@ -1,6 +1,16 @@
 # demo_calculator
 
-A simple Flutter Counter Calculator App using the Arithematic Operators
+A simple Flutter Counter Calculator App using the Arithematic Operators.
+
+## UI Screenshots
+
+The following screenshots were generated from the app UI golden tests:
+
+![Login Screen](test/goldens/login_screen.png)
+
+![Sign Up Screen](test/goldens/sign_up_screen.png)
+
+![Home Screen](test/goldens/home_screen.png)
 
 ## Getting Started
 
